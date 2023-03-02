@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <main>
+        <div class="visor">
+            <p class="visor-conteudo" id="visor-conteudo"></p>
+        </div>
+        <button onclick="limpar()">C</button>
+        <button onclick="apagar()">&#8592;</button>
+        <button onclick="inserir('**')">^</button>
+        <button onclick="inserir('/')">/</button>
+        <button onclick="inserir(7)">7</button>
+        <button onclick="inserir(8)">8</button>
+        <button onclick="inserir(9)">9</button>
+        <button onclick="inserir('*')">*</button>
+        <button onclick="inserir(4)">4</button>
+        <button onclick="inserir(5)">5</button>
+        <button onclick="inserir(6)">6</button>
+        <button onclick="inserir('-')">-</button>
+        <button onclick="inserir(1)">1</button>
+        <button onclick="inserir(2)">2</button>
+        <button onclick="inserir(3)">3</button>
+        <button onclick="inserir('+')">+</button>
+        <button onclick="inserir(0)" style="grid-column: span 2;">0</button>
+        <button onclick="inserir('.')">.</button>
+        <button onclick="calcular()">=</button>
+    </main>
+
+    <footer>
+        <p>Criado por <a href="https://github.com/MatheusBAlves">Matheus Alves</a></p>
+    </footer>
+</body>
+
+<script>
+
+    let frase = document.getElementById('visor-conteudo');
+
+    function inserir(e) {
+        frase.innerText += e;
+    }
+
+    function limpar() {
+        frase.innerHTML = "";
+    }
+
+    function apagar() {
+        frase.innerHTML = frase.innerHTML.substring(0, frase.innerHTML.length - 1);
+    }
+
+    function calcular() {
+        if(frase.innerHTML) {
+            frase.innerHTML = eval(frase.innerHTML);
+        }
+    }
+
+</script>
+
+</html>
